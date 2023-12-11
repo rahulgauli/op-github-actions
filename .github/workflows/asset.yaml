@@ -1,0 +1,24 @@
+name: Asset Management
+on:
+  pull_request:
+    types:
+      - opened
+  workflow_dispatch:
+  
+jobs:
+  get-archer-shortname:
+    runs-on: ubuntu-latest
+    outputs:
+      archershortname: "awesomeapp"
+    steps:
+      - id: get-shortname
+        run: |
+          echo "archershortname=$(echo "$title" | awk '{print $NF}')" | tee -a $GITHUB_OUTPUT
+  get-tanium-data:
+    runs-on: onprem-linux
+    outputs:
+      taniumdata: ${{ steps.get-tanium-data.outputs.archershortname }}
+    steps:
+      - name: print-tanium-data
+        run: |
+          echo "taniumdata=$(echo "taniumdata")" | tee -a $GITHUB_OUTPUT
