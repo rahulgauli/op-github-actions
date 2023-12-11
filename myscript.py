@@ -6,3 +6,5 @@ def hellowrold():
     print("Hello World")
     print(os.getenv("taniumdata"))
     return 
+
+hellowrold()
