@@ -10,10 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       archershortname: "awesomeapp"
-    steps:
-      - id: get-shortname
-        run: |
-          echo "archershortname=$(echo "$title" | awk '{print $NF}')" | tee -a $GITHUB_OUTPUT
   get-tanium-data:
     needs: get-archer-shortname
     runs-on: ubuntu-latest
@@ -23,3 +19,4 @@ jobs:
       - name: print-tanium-data
         run: |
           echo $taniumdata  
+          python myscript.py
