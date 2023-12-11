@@ -21,7 +21,9 @@ jobs:
     env:
       taniumdata: ${{ needs.get-archer-shortname.outputs.archershortname }}
     steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
       - name: print-tanium-data
         run: |
           echo $taniumdata  
-          python myscript.py
+          python myscript.py  
