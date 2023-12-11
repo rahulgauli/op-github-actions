@@ -18,7 +18,7 @@ jobs:
     needs: get-archer-shortname
     runs-on: onprem-linux
     env:
-      taniumdata: ${{ steps.get-archer-shortname.outputs.archershortname }}
+      taniumdata: ${{ needs.get-archer-shortname.outputs.archershortname }}
     steps:
       - name: print-tanium-data
         run: |
