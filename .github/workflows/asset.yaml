@@ -16,10 +16,10 @@ jobs:
           echo "archershortname=$(echo "$title" | awk '{print $NF}')" | tee -a $GITHUB_OUTPUT
   get-tanium-data:
     needs: get-archer-shortname
-    runs-on: onprem-linux
+    runs-on: ubuntu-latest
     env:
       taniumdata: ${{ needs.get-archer-shortname.outputs.archershortname }}
     steps:
       - name: print-tanium-data
         run: |
-          echo $taniumdata
+          echo $taniumdata  
