@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       archershortname: "awesomeapp"
+    steps:
+      - name: print("howdy")
+        run: |
+          echo "Hello World"
+          echo "::set-output name=archershortname::awesomeapp"
   get-tanium-data:
     needs: get-archer-shortname
     runs-on: ubuntu-latest
